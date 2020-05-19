@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/LemonBoy/criterion.nim.svg?branch=master)](https://travis-ci.org/LemonBoy/criterion.nim)
+[![Build Status](https://travis-ci.org/disruptek/criterion.svg?branch=master)](https://travis-ci.org/disruptek/criterion)
 
 # criterion.nim
 
@@ -150,3 +150,9 @@ benchmark(cfg):
 
 The data will be dumped once the block has been completed into a json file
 that's ready for consumption by other tools.
+
+## Documentation
+See [the documentation for the criterion module](https://disruptek.github.io/criterion/criterion.html) as generated directly from the source.
+
+## License
+MIT
