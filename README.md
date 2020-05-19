@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/disruptek/criterion.svg?branch=master)](https://travis-ci.org/disruptek/criterion)
 
-# criterion.nim
+# criterion
 
 A statistics-driven micro-benchmarking framework heavily inspired by the
 wonderful [criterion](https://github.com/bos/criterion) library for Haskell.
