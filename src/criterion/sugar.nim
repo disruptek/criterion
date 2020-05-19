@@ -15,8 +15,11 @@ import jsonExporter
 const
   ELLIPSIZE_THRESHOLD = 15
 
+type
+  Ellipsical = object or tuple or array or seq
+
 proc ellipsize[T](obj: T): string =
-  when T is object|tuple|array|seq:
+  when T is Ellipsical:
     return $obj.type
   else:
     var s = $obj
@@ -27,20 +30,21 @@ proc ellipsize[T](obj: T): string =
     result = s[0..5] & "..." & s[^6..^1] & "[" & $s.len & "]"
 
 proc dissectType(t: NimNode): BiggestInt =
-  let ty = getType(t)
-  case ty.typeKind():
-    of ntyProc:
-      # Get the return type
-      result = dissectType(ty[^1])
-    of ntyArray, ntySequence:
-      # Get the type of the contained values
-      result = dissectType(ty[^1])
-    of ntyTuple:
-      result = ty.len - 1
-    of ntyEmpty:
-      result = 0
-    else:
-      result = 1
+  let
+    ty = getType(t)
+  result = case ty.typeKind
+  of ntyProc:
+    # Get the return type
+    dissectType(ty[^1])
+  of ntyArray, ntySequence:
+    # Get the type of the contained values
+    dissectType(ty[^1])
+  of ntyTuple:
+    ty.len - 1
+  of ntyEmpty, ntyNone:
+    0
+  else:
+    1
 
 proc countArguments(n: NimNode, req, max: var int, idents: var seq[string]) =
   case n.kind
@@ -62,13 +66,19 @@ template returnsVoid(params: NimNode): bool =
   params[0].kind == nnkEmpty or getType(params[0]).typeKind == ntyVoid
 
 proc hasPragma(n: NimNode, id: string): NimNode =
+  ## returns the matching pragma's arguments, or
+  ## the matching pragma if it has none, or
+  ## nil
   for p in pragma(n):
-    if p.kind == nnkSym and eqIdent($p, id):
-      return p
-    elif p.kind == nnkExprColonExpr and eqIdent($p[0], id):
-      return p
+    case p.kind
+    of nnkSym:
+      if eqIdent($p, id):
+        return p
+    of nnkExprColonExpr:
+      if eqIdent($p[0], id):
+        return p
     else:
-      doAssert false
+      doAssert false, "bad assumption about the ast: " & $p.kind
 
 proc arityMismatchError(n: NimNode, name: string, got, expected: BiggestInt) =
   error("`" & name & "` expects " & $expected & " argument(s) but got " & $got, n)
@@ -188,25 +198,29 @@ macro xbenchmark(userCfg: Config, body: typed): untyped =
   proc transform(dest, n: NimNode) =
     ## Perform an almost-exact copy of ``n`` into ``dest`` but add the
     ## benchmarking fixtures when needed
-    if n.kind == nnkStmtList:
+    case n.kind
+    of nnkStmtList:
       let sl = newTree(nnkStmtList)
-      for s in n: transform(sl, s)
-      dest.add(sl)
-    elif n.kind == nnkBlockStmt:
+      for s in n.items:
+        transform(sl, s)
+      dest.add sl
+    of nnkBlockStmt:
       let sl = newTree(nnkStmtList)
-      # The transformed contents are appended into a fresh nnkStmtList since the
-      # block body may not be one
+      # The transformed contents are appended into a fresh nnkStmtList
+      # since the block body may not be one
       transform(sl, n[1])
       dest.add newBlockStmt(n[0], sl)
-    elif n.kind in {nnkProcDef, nnkFuncDef}:
+    of nnkProcDef, nnkFuncDef:
+      # add the real version
       dest.add n
 
+      # add the fixtured version
       let pNode = hasPragma(n, "measure")
       if pNode != nil:
-        if pNode.kind != nnkExprColonExpr:
-          dest.add genFixture(localCfg, accum, n, nil)
-        else:
+        if pNode.kind == nnkExprColonExpr:
           dest.add genFixture(localCfg, accum, n, pNode[1])
+        else:
+          dest.add genFixture(localCfg, accum, n, nil)
     else:
       dest.add n
 
