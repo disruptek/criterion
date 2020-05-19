@@ -11,8 +11,9 @@ srcDir        = "src"
 requires "nim >= 1.0.6"
 
 task test, "Runs the test suite":
-  exec "nim c -d:danger -r tests/tfib.nim"
+  var test = "tests/tfib.nim"
+  exec "nim c -d:danger -r " & test
   when NimMajor >= 1 and NimMinor >= 1:
-    execCmd "nim c --useVersion:1.0 -d:danger -r " & test
-    execCmd "nim c   --gc:arc -r " & test
-    execCmd "nim cpp --gc:arc -d:danger -r " & test
+    exec "nim c --useVersion:1.0 -d:danger -r " & test
+    exec "nim c   --gc:arc -r " & test
+    exec "nim cpp --gc:arc -d:danger -r " & test
