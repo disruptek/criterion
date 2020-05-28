@@ -67,7 +67,7 @@ proc bootstrap[T,V](cfg: Config, rng: var Rand, y: openArray[V], fn: proc (y: op
 
   for i in 0..<cfg.resamples:
     for j in 0..bufferY.high:
-      bufferY[j] = rng.rand(y)
+      bufferY[j] = rng.sample(y)
 
     values[i] = fn(bufferY)
 
