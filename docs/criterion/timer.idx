@@ -1,0 +1,2 @@
+NS_IN_S	criterion/timer.html#NS_IN_S	timer: NS_IN_S	
+getMonotonicTime	criterion/timer.html#getMonotonicTime	timer: getMonotonicTime(): float64	
