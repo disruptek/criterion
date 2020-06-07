@@ -49,7 +49,7 @@ template styledWriteLine*(f: File, args: varargs[untyped]) =
   write(f, "\n")
 
 proc toDisplay*(cfg: Config, strm: Stream, r: BenchmarkResult) =
-  let title = r.label & '(' &
+  let title = r.comment & " -> (" &
     r.params.mapIt(it[0] & " = " & it[1]).join(", ") & ')'
 
   styledWriteLine(stdout, styleBright, fgGreen, "Benchmark: ", resetStyle, title)

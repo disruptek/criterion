@@ -8,4 +8,5 @@ type
   BenchmarkResult* = tuple
     stats: Statistics
     label: string
+    comment: string
     params: seq[ParamTuple]

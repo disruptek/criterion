@@ -101,6 +101,12 @@ proc genFixture(cfg, accum, n, args: NimNode): NimNode =
 
   let procNameStr = newStrLitNode($procName)
 
+  var comment = # Reset the comment to a documentation comment, if available
+    if n[^1][0].kind == nnkCommentStmt:  # first stmt of proc body
+      newLit(n[^1][0].strVal)
+    else:
+      procNameStr
+
   if args != nil:
     # Try to figure out if `args` returns a n-element tuple and pass'em all as
     # distinct arguments
@@ -144,8 +150,9 @@ proc genFixture(cfg, accum, n, args: NimNode): NimNode =
           var `argsVar` = newSeqOfCap[(string, string)](`typeArity`)
           `collectArgsLoop`
           `accum`.add ((
-            bench(`cfg`, `procNameStr`, proc () = `innerBody`),
+            bench(`cfg`, `comment`, proc () = `innerBody`),
             `procNameStr`,
+            `comment`,
             `argsVar`))
   else:
     if maxArgs != 0:
@@ -154,8 +161,9 @@ proc genFixture(cfg, accum, n, args: NimNode): NimNode =
     let innerBody = newCall(procName)
     result = quote do:
       `accum`.add ((
-        bench(`cfg`, `procNameStr`, proc () = `innerBody`),
+        bench(`cfg`, `comment`, proc () = `innerBody`),
         `procNameStr`,
+        `comment`,
         @[]))
 
 when not declared(openFileStream):
