@@ -111,8 +111,8 @@ proc genFixture(cfg, accum, n, args: NimNode): NimNode =
 
     var innerBody = newCall(procName)
     let collectArgsLoop = newStmtList()
-    let arg = genSym(nskForVar)
-    var argsVar = genSym(nskVar)
+    let arg = nskForVar.genSym("arg")
+    var argsVar = nskVar.genSym("args")
 
     # Unpack `arg` if necessary and record the param <-> value assignment
     case typeArity:

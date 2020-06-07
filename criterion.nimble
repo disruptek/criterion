@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.2"
+version       = "0.1.3"
 author        = "LemonBoy"
 description   = "Statistic-driven microbenchmark framework"
 license       = "MIT"
