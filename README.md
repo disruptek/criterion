@@ -23,6 +23,7 @@ benchmark cfg:
     of 1: 1
     else: fib(n-1) + fib(n-2)
 
+  # on nim-1.0 you have to use {.measure: [].} instead
   proc fib5() {.measure.} =
     var n = 5
     blackBox fib(n)
