@@ -31,6 +31,7 @@ task test, "run tests for ci":
 
 task docs, "generate svg":
   exec "termtosvg docs/tfib.svg --loop-delay=10000 --screen-geometry=80x20 --template=window_frame_powershell --command=\"nim c --gc:arc --define:danger -r tests/tfib.nim\""
+  exec "termtosvg docs/brief.svg --loop-delay=10000 --screen-geometry=80x20 --template=window_frame_powershell --command=\"nim c --gc:arc --define:danger --define:briefOutput:on -r tests/tfib.nim\""
   exec "termtosvg docs/test1.svg --loop-delay=10000 --screen-geometry=80x20 --template=window_frame_powershell --command=\"nim c --gc:arc --define:danger -r tests/test1.nim\""
   exec "termtosvg docs/tmany.svg --loop-delay=10000 --screen-geometry=80x80 --template=window_frame_powershell --command=\"nim c --gc:arc --define:danger -r tests/tmany.nim\""
   exec "termtosvg docs/tmemcpy.svg --loop-delay=10000 --screen-geometry=80x30 --template=window_frame_powershell --command=\"nim c --gc:arc --define:danger -r tests/tmemcpy.nim\""

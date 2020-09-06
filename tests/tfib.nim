@@ -2,7 +2,10 @@ import criterion
 
 var cfg = newDefaultConfig()
 
-# cfg.brief = true
+const
+  briefOutput {.booldefine.} = false
+
+cfg.brief = briefOutput
 # cfg.outputPath = "tfib.json"
 
 benchmark cfg:
