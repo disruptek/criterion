@@ -93,5 +93,11 @@ that's ready for consumption by other tools.
 ## Documentation
 See [the documentation for the criterion module](https://disruptek.github.io/criterion/criterion.html) as generated directly from the source.
 
+## More Test Output
+
+[The source of the `many` test.](https://github.com/disruptek/criterion/blob/master/tests/tmany.nim)
+
+![many](docs/tmany.svg "many")
+
 ## License
 MIT
