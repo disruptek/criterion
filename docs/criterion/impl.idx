@@ -1,1 +1,0 @@
-bench	criterion/impl.html#bench,Config,string,proc)	impl: bench(cfg: Config; label: string; body: proc (): void): Statistics	

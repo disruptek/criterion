@@ -1,3 +1,0 @@
-benchmark	criterion/sugar.html#benchmark.t,Config,untyped	sugar: benchmark(userCfg: Config; body: untyped): untyped	
-measure	criterion/sugar.html#measure.t	sugar: measure()	
-measure	criterion/sugar.html#measure.t,typed	sugar: measure(_: typed)	

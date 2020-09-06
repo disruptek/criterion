@@ -1,8 +1,0 @@
-CI	criterion/statistics.html#CI	statistics: CI	
-Estimates	criterion/statistics.html#Estimates	statistics: Estimates	
-Outliers	criterion/statistics.html#Outliers	statistics: Outliers	
-Statistics	criterion/statistics.html#Statistics	statistics: Statistics	
-toOrdinal	criterion/statistics.html#toOrdinal.c,CI[T]	statistics: toOrdinal[T](v: CI[T]): T	
-isZero	criterion/statistics.html#isZero,Outliers	statistics: isZero(o: Outliers): bool	
-newEstimates	criterion/statistics.html#newEstimates,Config,seq[int],seq[float64],seq[float64]	statistics: newEstimates(cfg: Config; iterations: seq[int]; rawSamples, samples: seq[float64]): Estimates	
-newStatistics	criterion/statistics.html#newStatistics,Config,string,seq[int],seq[float64],seq[float64]	statistics: newStatistics(cfg: Config; label: string; iterations: seq[int];\n              samples, cycleSamples: seq[float64]): Statistics	

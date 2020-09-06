@@ -1,4 +1,0 @@
-boringWrite	criterion/consoleExporter.html#boringWrite.m,File,varargs[typed]	consoleExporter: boringWrite(f: File; m: varargs[typed]): untyped	
-styledWriteLine	criterion/consoleExporter.html#styledWriteLine.t,File,varargs[untyped]	consoleExporter: styledWriteLine(f: File; args: varargs[untyped])	
-toDisplay	criterion/consoleExporter.html#toDisplay,Config,Stream,BenchmarkResult	consoleExporter: toDisplay(cfg: Config; strm: Stream; r: BenchmarkResult)	
-toDisplay	criterion/consoleExporter.html#toDisplay,Config,Stream,seq[BenchmarkResult]	consoleExporter: toDisplay(cfg: Config; strm: Stream; r: seq[BenchmarkResult])	

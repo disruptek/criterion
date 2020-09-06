@@ -1,2 +1,0 @@
-toJson	criterion/jsonExporter.html#toJson,Config,Stream,BenchmarkResult	jsonExporter: toJson(cfg: Config; strm: Stream; r: BenchmarkResult)	
-toJson	criterion/jsonExporter.html#toJson,Config,Stream,seq[BenchmarkResult]	jsonExporter: toJson(cfg: Config; strm: Stream; r: seq[BenchmarkResult])	

@@ -1,0 +1,6 @@
+nim.cfg
+bin/
+nimblemeta.json
+docs/*
+!docs/.*
+!docs/*.svg
