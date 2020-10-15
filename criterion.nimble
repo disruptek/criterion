@@ -17,6 +17,11 @@ proc execTest(test: string) =
     execCmd "nim cpp            -r " & test
     execCmd "nim c   -d:danger  -r " & test
     execCmd "nim cpp -d:danger  -r " & test
+    when (NimMajor, NimMinor) >= (1, 4):
+      execCmd "nim c --useVersion:1.2 -d:danger -r " & test
+      execCmd "nim c   --useVersion:1.0 --gc:arc -d:danger -r " & test
+      execCmd "nim cpp --useVersion:1.0 --gc:arc -d:danger -r " & test
+
     when (NimMajor, NimMinor) >= (1, 2):
       execCmd "nim c --useVersion:1.0 -d:danger -r " & test
       execCmd "nim c   --gc:arc -d:danger -r " & test
