@@ -3,7 +3,9 @@ import criterion
 type
   Z = int
 
-let cfg = newDefaultConfig()
+var cfg = newDefaultConfig()
+cfg.warmupBudget = 0.1
+cfg.budget = 0.1
 
 benchmark cfg:
   proc foo(x, y: int) {.measure: [(1,2)].} =

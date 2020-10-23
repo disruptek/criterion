@@ -2,7 +2,9 @@ import criterion
 import std/sha1
 import strutils
 
-let cfg = newDefaultConfig()
+var cfg = newDefaultConfig()
+cfg.warmupBudget = 0.1
+cfg.budget = 0.1
 
 benchmark cfg:
   iterator strsrc(): string =
