@@ -49,7 +49,7 @@ benchmark cfg:
 ```
 
 Gives the following output:
-![fib](docs/tfib.svg "fib")
+![fib](docs/fib.svg "fib")
 
 A bit too much info? Just set `cfg.brief = true` and the results will be output
 in a condensed format:
@@ -95,9 +95,9 @@ See [the documentation for the criterion module](https://disruptek.github.io/cri
 
 ## More Test Output
 
-[The source of the `many` test.](https://github.com/disruptek/criterion/blob/master/tests/tmany.nim)
+[The source of the `many` test.](https://github.com/disruptek/criterion/blob/master/tests/many.nim)
 
-![many](docs/tmany.svg "many")
+![many](docs/many.svg "many")
 
 ## License
 MIT
