@@ -1,10 +1,10 @@
-version       = "0.2.5"
+version       = "0.2.6"
 author        = "LemonBoy"
 description   = "Statistic-driven microbenchmark framework"
 license       = "MIT"
 
 when not defined(release):
-  requires "https://github.com/disruptek/testes >= 1.0.0 & < 2.0.0"
+  requires "https://github.com/disruptek/testes < 2.0.0"
 
 task test, "run unit tests":
   when defined(windows):
