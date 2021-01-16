@@ -4,13 +4,13 @@ description   = "Statistic-driven microbenchmark framework"
 license       = "MIT"
 
 when not defined(release):
-  requires "https://github.com/disruptek/testes < 2.0.0"
+  requires "https://github.com/disruptek/balls >= 2.0.0 & < 3.0.0"
 
 task test, "run unit tests":
   when defined(windows):
-    exec "testes.cmd"
+    exec "balls.cmd"
   else:
-    exec "testes"
+    exec "balls"
 
 task demo, "generate svg":
   exec """demo docs/fib.svg "nim c -d:danger --out=\$1 --define:tfibOutput:off tests/tfib.nim""""
