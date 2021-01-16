@@ -1,4 +1,4 @@
-version       = "0.2.6"
+version       = "0.2.7"
 author        = "LemonBoy"
 description   = "Statistic-driven microbenchmark framework"
 license       = "MIT"
