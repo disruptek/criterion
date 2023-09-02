@@ -15,11 +15,8 @@ import jsonExporter
 const
   ELLIPSIZE_THRESHOLD = 15
 
-type
-  Ellipsical = object or tuple or array or seq
-
 proc ellipsize[T](obj: T): string =
-  when T is Ellipsical:
+  when T is object|tuple|array|seq:
     return $obj.type
   else:
     var s = $obj
