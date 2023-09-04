@@ -16,7 +16,7 @@ const
   ELLIPSIZE_THRESHOLD = 15
 
 type
-  Ellipsical = object or tuple or array or seq
+  Ellipsical = (object or tuple or array or seq)
 
 proc ellipsize[T](obj: T): string =
   when T is Ellipsical:
