@@ -1,0 +1,4 @@
+nimTitle	jsonExporter	criterion/jsonExporter.html	module criterion/jsonExporter		0
+nim	toJson	criterion/jsonExporter.html#toJson,Config,Stream,BenchmarkResult	proc toJson(cfg: Config; strm: Stream; r: BenchmarkResult)		25
+nim	toJson	criterion/jsonExporter.html#toJson,Config,Stream,seq[BenchmarkResult]	proc toJson(cfg: Config; strm: Stream; r: seq[BenchmarkResult])		29
+nimgrp	tojson	criterion/jsonExporter.html#toJson-procs-all	proc		25

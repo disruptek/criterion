@@ -1,0 +1,2 @@
+nimTitle	cycles	criterion/cycles.html	module criterion/cycles		0
+nim	cycles1	criterion/cycles.html#cycles1	proc cycles1(): float64		4

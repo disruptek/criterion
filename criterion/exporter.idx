@@ -1,0 +1,3 @@
+nimTitle	exporter	criterion/exporter.html	module criterion/exporter		0
+nim	ParamTuple	criterion/exporter.html#ParamTuple	tuple ParamTuple		4
+nim	BenchmarkResult	criterion/exporter.html#BenchmarkResult	tuple BenchmarkResult		8

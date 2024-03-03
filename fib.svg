@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="terminal" baseProfile="full" viewBox="0 0 687 880" width="687" version="1.1">
+    <defs>
+        <termtosvg:template_settings xmlns:termtosvg="https://github.com/nbedos/termtosvg">
+            <termtosvg:screen_geometry columns="80" rows="47"/>
+            <termtosvg:animation type="css"/>
+        </termtosvg:template_settings>
+        <style type="text/css" id="generated-style"><![CDATA[#screen {
+                font-family: 'DejaVu Sans Mono', monospace;
+                font-style: normal;
+                font-size: 14px;
+            }
+
+        text {
+            dominant-baseline: text-before-edge;
+            white-space: pre;
+        }
+    ]]></style>
+        <style type="text/css" id="user-style">
+            /* The colors defined below are the default 16 colors used for rendering text of the terminal. Adjust
+               them as needed.
+               PowerShell colors based on https://en.wikipedia.org/wiki/ANSI_escape_code#Colors */
+            .foreground {fill: #cccccc;}
+            .background {fill: #0c0c0c;}
+            .color0 {fill: #0c0c0c;}
+            .color1 {fill: #c50f1f;}
+            .color2 {fill: #13a10e;}
+            .color3 {fill: #c19c00;}
+            .color4 {fill: #0037da;}
+            .color5 {fill: #881798;}
+            .color6 {fill: #3a96dd;}
+            .color7 {fill: #cccccc;}
+            .color8 {fill: #767676;}
+            .color9 {fill: #e74856;}
+            .color10 {fill: #16c60c;}
+            .color11 {fill: #f9f1a5;}
+            .color12 {fill: #3b78ff;}
+            .color13 {fill: #b4009e;}
+            .color14 {fill: #61d6d6;}
+            .color15 {fill: #f2f2f2;}
+        </style>
+    </defs>
+    <rect id="terminalui" class="background" width="100%" height="100%" ry="4.5826941"/>
+    <circle cx="24" cy="23" r="7" class="color1"/>
+    <circle cx="44" cy="23" r="7" class="color3"/>
+    <circle cx="64" cy="23" r="7" class="color2"/>
+    <svg id="screen" width="640" height="799" x="23" y="50" viewBox="0 0 640 799" preserveAspectRatio="xMidYMin slice"><rect class="background" height="100%" width="100%" x="0" y="0"/><defs><g id="g1"><text x="0" textLength="88" font-weight="bold" class="color10">Benchmark: </text><text x="88" textLength="80" class="foreground">fib5 -&gt; ()</text></g><g id="g2"><text x="0" textLength="168" class="foreground">Collected 237 samples</text></g><g id="g3"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="496" class="foreground">Found 10 mild and 24 extreme outliers in the time measurements</text></g><g id="g4"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="504" class="foreground">Found 7 mild and 29 extreme outliers in the cycles measurements</text></g><g id="g5"><text x="0" textLength="32" font-weight="bold" class="color12">Time</text></g><g id="g6"><text x="0" textLength="312" class="foreground">  Time: 5.9371ns (5.8059ns .. 6.0872ns)</text></g><g id="g7"><text x="0" textLength="264" class="foreground">  R&#178;:   0.9966 (0.9949 .. 0.9980)</text></g><g id="g8"><text x="0" textLength="312" class="foreground">  Mean: 6.9507ns (6.4808ns .. 7.6092ns)</text></g><g id="g9"><text x="0" textLength="312" class="foreground">  Std:  4.5090ns (1.6457ns .. 7.2470ns)</text></g><g id="g10"><text x="0" textLength="48" font-weight="bold" class="color12">Cycles</text></g><g id="g11"><text x="0" textLength="328" class="foreground">  Cycles: 21cycles (21cycles .. 22cycles)</text></g><g id="g12"><text x="0" textLength="280" class="foreground">  R&#178;:     0.9966 (0.9948 .. 0.9980)</text></g><g id="g13"><text x="0" textLength="328" class="foreground">  Mean:   24cycles (22cycles .. 25cycles)</text></g><g id="g14"><text x="0" textLength="312" class="foreground">  Std:    9cycles (4cycles .. 14cycles)</text></g><g id="g15"><text x="0" textLength="88" font-weight="bold" class="color10">Benchmark: </text><text x="88" textLength="120" class="foreground">fibN -&gt; (x = 5)</text></g><g id="g16"><text x="0" textLength="168" class="foreground">Collected 229 samples</text></g><g id="g17"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="496" class="foreground">Found 13 mild and 18 extreme outliers in the time measurements</text></g><g id="g18"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="504" class="foreground">Found 6 mild and 13 extreme outliers in the cycles measurements</text></g><g id="g19"><text x="0" textLength="312" class="foreground">  Time: 8.7636ns (8.5889ns .. 8.9729ns)</text></g><g id="g20"><text x="0" textLength="264" class="foreground">  R&#178;:   0.9966 (0.9933 .. 0.9989)</text></g><g id="g21"><text x="0" textLength="320" class="foreground">  Mean: 9.3101ns (8.8027ns .. 10.0471ns)</text></g><g id="g22"><text x="0" textLength="312" class="foreground">  Std:  4.9364ns (1.3067ns .. 8.0434ns)</text></g><g id="g23"><text x="0" textLength="328" class="foreground">  Cycles: 32cycles (31cycles .. 33cycles)</text></g><g id="g24"><text x="0" textLength="280" class="foreground">  R&#178;:     0.9966 (0.9937 .. 0.9989)</text></g><g id="g25"><text x="0" textLength="328" class="foreground">  Mean:   32cycles (31cycles .. 34cycles)</text></g><g id="g26"><text x="0" textLength="320" class="foreground">  Std:    10cycles (2cycles .. 16cycles)</text></g><g id="g27"><text x="0" textLength="88" font-weight="bold" class="color10">Benchmark: </text><text x="88" textLength="128" class="foreground">fibN1 -&gt; (x = 5)</text></g><g id="g28"><text x="0" textLength="168" class="foreground">Collected 227 samples</text></g><g id="g29"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="496" class="foreground">Found 18 mild and 16 extreme outliers in the time measurements</text></g><g id="g30"><text x="0" textLength="72" font-weight="bold" class="color11">Warning: </text><text x="72" textLength="504" class="foreground">Found 8 mild and 25 extreme outliers in the cycles measurements</text></g><g id="g31"><text x="0" textLength="312" class="foreground">  Time: 9.5118ns (9.3480ns .. 9.7279ns)</text></g><g id="g32"><text x="0" textLength="264" class="foreground">  R&#178;:   0.9973 (0.9949 .. 0.9992)</text></g><g id="g33"><text x="0" textLength="328" class="foreground">  Mean: 10.4302ns (9.8995ns .. 11.1837ns)</text></g><g id="g34"><text x="0" textLength="312" class="foreground">  Std:  5.2992ns (1.3926ns .. 8.7526ns)</text></g><g id="g35"><text x="0" textLength="328" class="foreground">  Cycles: 35cycles (34cycles .. 36cycles)</text></g><g id="g36"><text x="0" textLength="280" class="foreground">  R&#178;:     0.9973 (0.9946 .. 0.9991)</text></g><g id="g37"><text x="0" textLength="328" class="foreground">  Mean:   36cycles (35cycles .. 38cycles)</text></g><g id="g38"><text x="0" textLength="320" class="foreground">  Std:    11cycles (3cycles .. 18cycles)</text></g><g id="g39"><text x="0" textLength="8" class="background"> </text></g></defs><g><use xlink:href="#g1" y="0"/><use xlink:href="#g2" y="17"/><use xlink:href="#g3" y="34"/><use xlink:href="#g4" y="51"/><use xlink:href="#g5" y="68"/><use xlink:href="#g6" y="85"/><use xlink:href="#g7" y="102"/><use xlink:href="#g8" y="119"/><use xlink:href="#g9" y="136"/><use xlink:href="#g10" y="153"/><use xlink:href="#g11" y="170"/><use xlink:href="#g12" y="187"/><use xlink:href="#g13" y="204"/><use xlink:href="#g14" y="221"/><use xlink:href="#g15" y="255"/><use xlink:href="#g16" y="272"/><use xlink:href="#g17" y="289"/><use xlink:href="#g18" y="306"/><use xlink:href="#g5" y="323"/><use xlink:href="#g19" y="340"/><use xlink:href="#g20" y="357"/><use xlink:href="#g21" y="374"/><use xlink:href="#g22" y="391"/><use xlink:href="#g10" y="408"/><use xlink:href="#g23" y="425"/><use xlink:href="#g24" y="442"/><use xlink:href="#g25" y="459"/><use xlink:href="#g26" y="476"/><use xlink:href="#g27" y="510"/><use xlink:href="#g28" y="527"/><use xlink:href="#g29" y="544"/><use xlink:href="#g30" y="561"/><use xlink:href="#g5" y="578"/><use xlink:href="#g31" y="595"/><use xlink:href="#g32" y="612"/><use xlink:href="#g33" y="629"/><use xlink:href="#g34" y="646"/><use xlink:href="#g10" y="663"/><use xlink:href="#g35" y="680"/><use xlink:href="#g36" y="697"/><use xlink:href="#g37" y="714"/><use xlink:href="#g38" y="731"/><rect x="0" y="765" width="8" height="17" class="foreground"/><use xlink:href="#g39" y="765"/></g></svg>
+</svg>

@@ -1,0 +1,6 @@
+nimTitle	consoleExporter	criterion/consoleExporter.html	module criterion/consoleExporter		0
+nim	boringWrite	criterion/consoleExporter.html#boringWrite.m,File,varargs[typed]	macro boringWrite(f: File; m: varargs[typed]): untyped		33
+nim	styledWriteLine	criterion/consoleExporter.html#styledWriteLine.t,File,varargs[untyped]	template styledWriteLine(f: File; args: varargs[untyped])		42
+nim	toDisplay	criterion/consoleExporter.html#toDisplay,Config,Stream,BenchmarkResult	proc toDisplay(cfg: Config; strm: Stream; r: BenchmarkResult)		51
+nim	toDisplay	criterion/consoleExporter.html#toDisplay,Config,Stream,seq[BenchmarkResult]	proc toDisplay(cfg: Config; strm: Stream; r: seq[BenchmarkResult])		86
+nimgrp	todisplay	criterion/consoleExporter.html#toDisplay-procs-all	proc		51

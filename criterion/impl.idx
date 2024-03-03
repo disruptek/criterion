@@ -1,0 +1,2 @@
+nimTitle	impl	criterion/impl.html	module criterion/impl		0
+nim	bench	criterion/impl.html#bench,Config,string,proc)	proc bench(cfg: Config; label: string; body: proc (): void): Statistics		20
