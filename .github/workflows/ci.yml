@@ -122,7 +122,7 @@ jobs:
                 --define:debug --define:release --define:danger
 
       - name: Build Docs
-        if: matrix.os == 'ubuntu-latest' && matrix.nim == 'version-2-0'
+        if: matrix.os == 'ubuntu-latest' && matrix.compiler.version == 'version-2-0'
         run: |
           cd project
           branch=${{ github.ref }}
@@ -138,7 +138,7 @@ jobs:
       - name: Publish Docs
         if: >
           github.event_name == 'push' && github.ref == 'refs/heads/master' &&
-          matrix.os == 'ubuntu-latest' && matrix.nim == 'version-2-0'
+          matrix.os == 'ubuntu-latest' && matrix.compiler.version == 'version-2-0'
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           build_dir: project/docs
