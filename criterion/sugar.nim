@@ -128,13 +128,15 @@ proc genFixture(cfg, accum, n, args: NimNode): NimNode =
       # Single argument only, pass as-is
       innerBody.add(arg)
       collectArgsLoop.add(newCall("add", argsVar,
-        newPar(newStrLitNode(argNames[0]), newCall(bindSym"ellipsize", arg))))
+        nnkTupleConstr.newTree(newStrLitNode(argNames[0]),
+                               newCall(bindSym"ellipsize", arg))))
     else:
       for i in 0..<typeArity.int:
         let argN = newNimNode(nnkBracketExpr).add(arg, newIntLitNode(i))
         innerBody.add(argN)
         collectArgsLoop.add(newCall("add", argsVar,
-          newPar(newStrLitNode(argNames[i]), newCall(bindSym"ellipsize", argN))))
+          nnkTupleConstr.newTree(newStrLitNode(argNames[i]),
+                                 newCall(bindSym"ellipsize", argN))))
 
     # If an iterator/proc name is passed we must wrap it in a call node
     let iter = if getType(args).typeKind() == ntyProc:

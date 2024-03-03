@@ -4,7 +4,6 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/disruptek/criterion?style=flat)](https://github.com/disruptek/criterion/releases/latest)
 ![Minimum supported Nim version](https://img.shields.io/badge/nim-1.0.8%2B-informational?style=flat&logo=nim)
 [![License](https://img.shields.io/github/license/disruptek/criterion?style=flat)](#license)
-[![buy me a coffee](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-orange.svg)](https://www.buymeacoffee.com/disruptek)
 
 A statistics-driven micro-benchmarking framework heavily inspired by the
 wonderful [criterion](https://github.com/bos/criterion) library for Haskell;

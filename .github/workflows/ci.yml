@@ -2,27 +2,16 @@ name: CI
 on:
   schedule:
     - cron: '30 5 * * *'
-
   push:
     branches:
       - master
-    paths:
-      - '**.cfg'
-      - '**.nims'
-      - '**.nim'
-      - '**.nimble'
-      - 'tests/**'
-      - '.github/workflows/ci.yml'
   pull_request:
     branches:
       - '*'
-    paths:
-      - '**.cfg'
-      - '**.nims'
-      - '**.nim'
-      - '**.nimble'
-      - 'tests/**'
-      - '.github/workflows/ci.yml'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   changes:
@@ -36,10 +25,10 @@ jobs:
       # For PRs the path filter check with Github API, so no need to checkout
       # for them.
       - if: github.event_name != 'pull_request'
-        name: Checkout (if not PR)
-        uses: actions/checkout@v3
+        name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
@@ -50,6 +39,7 @@ jobs:
               - '**.nimble'
               - 'tests/**'
               - '.github/workflows/ci.yml'
+
   build:
     # Build if the files we care about are changed.
     needs: changes
@@ -64,38 +54,80 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        nim: [version-1-0, version-1-2, version-1-4, version-1-6, version-2-0, devel]
-    name: '${{ matrix.os }} (${{ matrix.nim }})'
+        os: [ubuntu-latest]
+        compiler:
+          - name: nim
+            version: "version-2-0"
+          - name: nimskull
+            version: "*"
+
+    name: '${{ matrix.os }} (${{ matrix.compiler.name }} ${{ matrix.compiler.version }})'
     runs-on: ${{ matrix.os }}
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: project
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           path: project
 
-      - name: Setup Nim
+      - name: Nim
+        if: matrix.compiler.name == 'nim'
         uses: alaviss/setup-nim@0.1.1
         with:
           path: nim
-          version: ${{ matrix.nim }}
+          version: ${{ matrix.compiler.version }}
 
-      - name: Run tests
-        shell: bash
+      - name: Nimskull
+        id: nimskull
+        if: matrix.compiler.name == 'nimskull'
+        uses: nim-works/setup-nimskull@0.1.0
+        with:
+          nimskull-version: ${{ matrix.compiler.version }}
+
+      - name: Fetch Nimble
+        if: matrix.compiler.name == 'nimskull'
+        uses: actions/checkout@v4.1.1
+        with:
+          path: nimble
+          repository: alaviss/nimble
+          ref: nimskull
+
+      - name: Build Nimble
+        if: matrix.compiler.name == 'nimskull'
         run: |
-          cd project
-          nimble --accept develop
-          nimble --accept install "https://github.com/disruptek/balls"
-          balls --path="."
+          nim c -d:release -o:"$NIMSKULL_BIN/nimble" src/nimble.nim
+          # Add nimble binary folder to PATH
+          echo "$HOME/.nimble/bin" >> "$GITHUB_PATH"
+        working-directory: nimble
+        env:
+          NIMSKULL_BIN: ${{ steps.nimskull.outputs.bin-path }}
 
-      - name: Build docs
-        if: ${{ matrix.docs }} == 'true'
-        shell: bash
+      - name: Dependencies
+        run: |
+          nimble --accept install "https://github.com/disruptek/balls"
+          nimble --accept develop
+        env:
+          NIM: ${{ matrix.compiler.name }}
+
+      - name: Tests
+        run: |
+          balls --path="." \
+                --backend:c --panics:on \
+                --mm:arc --define:useMalloc \
+                --define:debug --define:release --define:danger
+
+      - name: Build Docs
+        if: matrix.os == 'ubuntu-latest' && matrix.nim == 'version-2-0'
         run: |
           cd project
           branch=${{ github.ref }}
           branch=${branch##*/}
-          nimble doc --project --outdir:docs --path="." \
+          nimble doc --mm:arc --threads:on --project --outdir:docs --path="." \
             '--git.url:https://github.com/${{ github.repository }}' \
             '--git.commit:${{ github.sha }}' \
             "--git.devel:$branch" \
@@ -103,7 +135,7 @@ jobs:
           # Ignore failures for older Nim
           cp docs/{the,}index.html || true
 
-      - name: Publish docs
+      - name: Publish Docs
         if: >
           github.event_name == 'push' && github.ref == 'refs/heads/master' &&
           matrix.os == 'ubuntu-latest' && matrix.nim == 'version-2-0'

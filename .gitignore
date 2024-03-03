@@ -1,6 +1,9 @@
 nim.cfg
-bin/
+bin
+deps
+.tool-versions
+profile.coz
 nimblemeta.json
-docs/*
-!docs/.*
-!docs/*.svg
+perf.data
+perf.data.old
+heaptrack.*.zst
