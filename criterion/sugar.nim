@@ -1,4 +1,4 @@
-import macros
+import macros except quote, stamp
 import sequtils
 import strutils
 import streams
@@ -14,6 +14,14 @@ import jsonExporter
 
 const
   ELLIPSIZE_THRESHOLD = 15
+
+when declared(macros.stamp):
+  template quote(body: untyped): untyped =
+    ## Shim for nimskull's quote
+    macros.stamp(body)
+else:
+  template quote(body: untyped): untyped =
+    macros.quote(body)
 
 type
   Ellipsical = (object or tuple or array or seq)
