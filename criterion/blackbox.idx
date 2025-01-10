@@ -1,0 +1,4 @@
+nimTitle	blackbox	criterion/blackbox.html	module criterion/blackbox		0
+nim	blackBox	criterion/blackbox.html#blackBox.t,T	template blackBox[T](x: var T)		4
+nim	blackBox	criterion/blackbox.html#blackBox.t,T_2	template blackBox[T](x: T)		10
+nimgrp	blackbox	criterion/blackbox.html#blackBox-templates-all	template		4

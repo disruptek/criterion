@@ -1,0 +1,3 @@
+nimTitle	config	criterion/config.html	module criterion/config		0
+nim	Config	criterion/config.html#Config	object Config		2
+nim	newDefaultConfig	criterion/config.html#newDefaultConfig	proc newDefaultConfig(): Config		11

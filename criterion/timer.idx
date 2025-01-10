@@ -1,0 +1,3 @@
+nimTitle	timer	criterion/timer.html	module criterion/timer		0
+nim	NS_IN_S	criterion/timer.html#NS_IN_S	const NS_IN_S		2
+nim	getMonotonicTime	criterion/timer.html#getMonotonicTime	proc getMonotonicTime(): float64		40

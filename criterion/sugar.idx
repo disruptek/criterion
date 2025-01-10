@@ -1,0 +1,5 @@
+nimTitle	sugar	criterion/sugar.html	module criterion/sugar		0
+nim	benchmark	criterion/sugar.html#benchmark.t,Config,untyped	template benchmark(userCfg: Config; body: untyped): untyped		263
+nim	measure	criterion/sugar.html#measure.t	template measure()		271
+nim	measure	criterion/sugar.html#measure.t,typed	template measure(_: typed)		272
+nimgrp	measure	criterion/sugar.html#measure-templates-all	template		271

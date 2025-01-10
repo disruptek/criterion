@@ -1,0 +1,9 @@
+nimTitle	statistics	criterion/statistics.html	module criterion/statistics		0
+nim	CI	criterion/statistics.html#CI	object CI		10
+nim	Estimates	criterion/statistics.html#Estimates	object Estimates		14
+nim	Outliers	criterion/statistics.html#Outliers	tuple Outliers		20
+nim	Statistics	criterion/statistics.html#Statistics	object Statistics		24
+nim	toOrdinal	criterion/statistics.html#toOrdinal.c,CI[T]	converter toOrdinal[T](v: CI[T]): T		34
+nim	isZero	criterion/statistics.html#isZero,Outliers	proc isZero(o: Outliers): bool		60
+nim	newEstimates	criterion/statistics.html#newEstimates,Config,seq[int],seq[float64],seq[float64]	proc newEstimates(cfg: Config; iterations: seq[int];\n             rawSamples, samples: seq[float64]): Estimates		105
+nim	newStatistics	criterion/statistics.html#newStatistics,Config,string,seq[int],seq[float64],seq[float64]	proc newStatistics(cfg: Config; label: string; iterations: seq[int];\n              samples, cycleSamples: seq[float64]): Statistics		137
